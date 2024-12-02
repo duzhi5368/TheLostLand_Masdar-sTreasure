@@ -1,0 +1,12 @@
+{
+    "RandomNeutrallyUnitPrefabPaths": [
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_30.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_31.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_32.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_33.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_34.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_35.prefab"
+    ],
+    "NeutrallyUnitNumber": 5,
+    "ProtectedColumns": 4
+}

@@ -1,0 +1,19 @@
+{
+    "BaseSquarePrefabPath": "Assets/FKLib/TestAssets/Prefabs/Dungeon_Tileset_3_0.prefab",
+    "Width": 16,
+    "Height": 9,
+    "ReplaceRate": 20,
+    "RandomSquarePrefabPaths": [
+        "Assets/FKLib/TestAssets/Prefabs/Dungeon_Tileset_3_1.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/Dungeon_Tileset_3_2.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/Dungeon_Tileset_3_3.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/Dungeon_Tileset_3_4.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/Dungeon_Tileset_3_5.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/Dungeon_Tileset_3_6.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/Dungeon_Tileset_3_7.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/Dungeon_Tileset_3_8.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/Dungeon_Tileset_3_9.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/Dungeon_Tileset_3_10.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/Dungeon_Tileset_3_11.prefab"
+    ]
+}

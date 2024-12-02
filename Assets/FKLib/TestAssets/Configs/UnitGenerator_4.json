@@ -1,0 +1,18 @@
+{
+    "RandomNeutrallyUnitPrefabPaths": [
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_18.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_19.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_20.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_21.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_22.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_23.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_24.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_25.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_26.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_27.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_28.prefab",
+        "Assets/FKLib/TestAssets/Prefabs/DungeonStaticUnit_29.prefab"
+    ],
+    "NeutrallyUnitNumber": 10,
+    "ProtectedColumns": 3
+}

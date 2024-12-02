@@ -1,0 +1,10 @@
+# ninja log v5
+15	781	7540570087293607	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c9375b42fe591fae
+6	819	7540570087671815	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	963d6b6f4d6afd2d
+19	825	7540570087716415	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	7fca39f6f87917a1
+9	838	7540570087882368	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	700009ebd9f3d2fc
+23	889	7540570088391922	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	7cc977372091504c
+0	931	7540570088809667	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	cbb0179111062048
+12	1081	7540570090311729	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	2f82b8f8dd23f408
+3	1156	7540570091075057	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	78a6544136074d68
+1156	1232	7540570091861033	D:/Github/UnityProject/TheLostLand_Masdar'sTreasure/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6t1f622s/obj/arm64-v8a/libgame.so	672e126158728db2

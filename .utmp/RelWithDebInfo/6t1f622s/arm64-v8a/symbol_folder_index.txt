@@ -1,0 +1,1 @@
+D:\Github\UnityProject\TheLostLand_Masdar'sTreasure\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\6t1f622s\obj\arm64-v8a

@@ -880,7 +880,7 @@ namespace FKLib
         {
             string savePath = EditorUtility.SaveFilePanel(
                 "保存地图生成配置文件",           // 标题
-                Application.dataPath,           // 默认路径
+                Application.dataPath + Path.MAP_GENERATOR_CONFIG_DIR,           // 默认路径
                 "MapGenerator.json",            // 默认文件名
                 "json"                          // 文件扩展名
             );
@@ -895,7 +895,7 @@ namespace FKLib
         {
             string loadPath = EditorUtility.OpenFilePanel(
                 "加载地图生成配置文件",          // 标题
-                Application.dataPath,           // 默认路径
+                Application.dataPath + Path.MAP_GENERATOR_CONFIG_DIR,           // 默认路径
                 "json"                          // 文件扩展名
             );
 
@@ -920,7 +920,7 @@ namespace FKLib
         {
             string savePath = EditorUtility.SaveFilePanel(
                 "保存战斗单元生成配置文件",     // 标题
-                Application.dataPath,           // 默认路径
+                Application.dataPath + Path.MAP_GENERATOR_CONFIG_DIR,           // 默认路径
                 "UnitGenerator.json",           // 默认文件名
                 "json"                          // 文件扩展名
             );
@@ -946,7 +946,7 @@ namespace FKLib
         {
             string loadPath = EditorUtility.OpenFilePanel(
                 "加载战斗单元生成配置文件",     // 标题
-                Application.dataPath,           // 默认路径
+                Application.dataPath + Path.MAP_GENERATOR_CONFIG_DIR,           // 默认路径
                 "json"                          // 文件扩展名
             );
 

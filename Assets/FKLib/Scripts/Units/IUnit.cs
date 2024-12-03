@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TbsFramework.Players.AI.Evaluators;
 using UnityEngine;
 //============================================================
 namespace FKLib
@@ -260,6 +259,13 @@ namespace FKLib
 
         // Method will be called after unit performed defence.
         protected virtual void DefenceActionPerformed() { }
+
+        public int DryAttack(IUnit other)
+        {
+            int damage = DealDamage(other).Damage;
+            int realDamage = other.Defend(this, damage);
+            return realDamage;
+        }
         #endregion
 
         #region move functions

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace FKLib
 {
     [Serializable]
-    public abstract class ICell : MonoBehaviour, IGraphNode, IEquatable<ICell>
+    public abstract class ICell : MonoBehaviour, IGraphPathFindingNode, IEquatable<ICell>
     {
         #region params
         private int _hash = -1;
@@ -81,7 +81,7 @@ namespace FKLib
         public virtual void SetColor(Color color) { }
         public virtual void Initialize(ICellGrid cellGrid) { }
 
-        public int GetDistance(IGraphNode other)
+        public int GetDistance(IGraphPathFindingNode other)
         {
             return GetDistance(other as ICell);
         }

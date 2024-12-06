@@ -1,9 +1,9 @@
 //============================================================
 namespace FKLib
 {
-    public interface IGraphNode
+    public interface IGraphPathFindingNode
     {
         // Returns distance to a IGraphNode that is given as parameter. 
-        int GetDistance(IGraphNode other);
+        int GetDistance(IGraphPathFindingNode other);
     }
 }

@@ -23,7 +23,7 @@ namespace FKLib
         public virtual bool IsHost { get; protected set; }          // is local player hosting this room
 
         protected Dictionary<long, Action<Dictionary<string, string>>> Handlers = new Dictionary<long, Action<Dictionary<string, string>>>();
-        protected Queue<(Action preAction, Func<IEnumerator> routine)> EventQueue = new Queue<(Action preAction, Func<IEnumerator> routine)>();
+        protected Queue<(System.Action preAction, Func<IEnumerator> routine)> EventQueue = new Queue<(System.Action preAction, Func<IEnumerator> routine)>();
         protected bool isProcessingEvents;
 
 
@@ -126,7 +126,7 @@ namespace FKLib
         }
         private void HandleRemoteTurnEnding(Dictionary<string, string> actionParams)
         {
-            EventQueue.Enqueue((new Action(() => { }), () => EndTurn(true)));
+            EventQueue.Enqueue((new System.Action(() => { }), () => EndTurn(true)));
             if (!isProcessingEvents)
             {
                 StartCoroutine(ProcessEvents());

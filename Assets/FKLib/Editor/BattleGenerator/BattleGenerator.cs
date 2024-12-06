@@ -11,8 +11,8 @@ namespace FKLib
 {
     public class BattleGenerator : EditorWindow
     {
-        public static List<Type> sGenerators;                // 当前支持的地图生成器列表
-        public static string[] sGeneratorName;             // 当前支持的地图生成器名称列表
+        public static List<Type> sGenerators;       // 当前支持的地图生成器列表
+        public static string[] sGeneratorName;      // 当前支持的地图生成器名称列表
 
         public bool IsKeepMainCamera = false;
         public bool IsUseMovableCamera = false;

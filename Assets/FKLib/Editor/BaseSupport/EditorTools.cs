@@ -42,7 +42,8 @@ namespace FKLib
             EditorGUILayout.BeginHorizontal();
             string before = search;
 
-            Rect rect = GUILayoutUtility.GetRect(GUIContent.none, "ToolbarSeachTextField", options);
+            //Rect rect = GUILayoutUtility.GetRect(GUIContent.none, "ToolbarSeachTextField", options);
+            Rect rect = GUILayoutUtility.GetRect(GUIContent.none, GUI.skin.button, options);
             rect.x += 2f;
             rect.width -= 2f;
             Rect buttonRect = rect;
@@ -60,7 +61,8 @@ namespace FKLib
 
             }
             GUI.SetNextControlName("SearchTextFieldFocus");
-            GUIStyle style = new GUIStyle("ToolbarSeachTextField");
+            //GUIStyle style = new GUIStyle("ToolbarSeachTextField");
+            GUIStyle style = new GUIStyle();
             if (before == "Search...")
             {
                 style.normal.textColor = Color.gray;
@@ -70,7 +72,8 @@ namespace FKLib
             if (focus)
                 EditorGUI.FocusTextInControl("SearchTextFieldFocus");
 
-            GUI.Button(buttonRect, GUIContent.none, (after != "" && after != "Search...") ? "ToolbarSeachCancelButton" : "ToolbarSeachCancelButtonEmpty");
+            // GUI.Button(buttonRect, GUIContent.none, (after != "" && after != "Search...") ? "ToolbarSeachCancelButton" : "ToolbarSeachCancelButtonEmpty");
+            GUI.Button(buttonRect, GUIContent.none, GUI.skin.button);
             EditorGUILayout.EndHorizontal();
             return after;
         }
@@ -83,7 +86,8 @@ namespace FKLib
             string[] result = new string[] { filter, search };
             string before = search;
 
-            Rect rect = GUILayoutUtility.GetRect(GUIContent.none, (GUIStyle)"ToolbarSeachTextFieldPopup", options);
+            //Rect rect = GUILayoutUtility.GetRect(GUIContent.none, (GUIStyle)"ToolbarSeachTextFieldPopup", options);
+            Rect rect = GUILayoutUtility.GetRect(GUIContent.none, GUI.skin.button, options);
             rect.x += 2f;
             rect.width -= 2f;
             Rect buttonRect = rect;
@@ -99,7 +103,8 @@ namespace FKLib
                 GUI.FocusControl(null);
             }
 
-            GUIStyle style = new GUIStyle("ToolbarSeachTextField");
+            //GUIStyle style = new GUIStyle("ToolbarSeachTextField");
+            GUIStyle style = new GUIStyle();
             if (before == "Search...")
             {
                 style.normal.textColor = Color.gray;
@@ -119,9 +124,10 @@ namespace FKLib
                     before = result[0];
                 }
             }
-            string after = EditorGUI.TextField(rect, "", before, (GUIStyle)"ToolbarSeachTextFieldPopup");
-
-            GUI.Button(buttonRect, GUIContent.none, (after != "" && after != "Search...") ? "ToolbarSeachCancelButton" : "ToolbarSeachCancelButtonEmpty");
+            //string after = EditorGUI.TextField(rect, "", before, (GUIStyle)"ToolbarSeachTextFieldPopup");
+            string after = EditorGUI.TextField(rect, "", before, GUI.skin.button);
+            //GUI.Button(buttonRect, GUIContent.none, (after != "" && after != "Search...") ? "ToolbarSeachCancelButton" : "ToolbarSeachCancelButtonEmpty");
+            GUI.Button(buttonRect, GUIContent.none, GUI.skin.button);
             EditorGUILayout.EndHorizontal();
             result[1] = after;
             return result;
@@ -360,7 +366,7 @@ namespace FKLib
                 }
                 else
                 {
-                    FieldInfo enableField = target.GetType().GetSerializedField("m_Enabled");
+                    FieldInfo enableField = target.GetType().GetSerializedField("_isEnabled");
                     if (enableField != null)
                     {
                         bool isEnabled = GUI.Toggle(rect5, (bool)enableField.GetValue(target), GUIContent.none);

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace FKLib
 {
     [Serializable]
-    public class IStat : ScriptableObject, INameable, IGraphProvider, IJsonSerializable
+    public class IStat : ScriptableObject, INameable, IJsonSerializable /*, IGraphProvider */
     {
         public System.Action OnValueChange;
 
@@ -19,9 +19,6 @@ namespace FKLib
         [InspectorLabel("基础值")]
         [SerializeField]
         protected float _baseValue;
-
-        [SerializeField]
-        protected FormulaGraph _formulaGraph;
 
         [InspectorLabel("最大值")]
         [SerializeField]
@@ -75,7 +72,7 @@ namespace FKLib
 
         public void CalculateValue(bool invokeCallbacks)
         {
-            float finalValue = _baseValue + _formulaGraph;
+            float finalValue = _baseValue;
             float sumPercentAdd = 0f;
             _statModifiers.Sort((x, y) => x.Type.CompareTo(y.Type));
 
@@ -138,11 +135,6 @@ namespace FKLib
                 return true;
             }
             return false;
-        }
-
-        public IGraph GetGraph()
-        {
-            return _formulaGraph;
         }
 
         public override string ToString()

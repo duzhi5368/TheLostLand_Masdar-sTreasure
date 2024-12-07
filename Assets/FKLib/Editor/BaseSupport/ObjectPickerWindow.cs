@@ -123,7 +123,8 @@ namespace FKLib
             EditorGUILayout.BeginHorizontal();
             string before = search;
 
-            Rect rect = GUILayoutUtility.GetRect(GUIContent.none, "ToolbarSeachTextField", options);
+            //Rect rect = GUILayoutUtility.GetRect(GUIContent.none, "ToolbarSeachTextField", options);
+            Rect rect = GUILayoutUtility.GetRect(GUIContent.none, GUI.skin.button, options);
             rect.x += 2f;
             rect.width -= 2f;
             Rect buttonRect = rect;
@@ -141,7 +142,8 @@ namespace FKLib
 
             }
             GUI.SetNextControlName("SearchTextFieldFocus");
-            GUIStyle style = new GUIStyle("ToolbarSeachTextField");
+            //GUIStyle style = new GUIStyle("ToolbarSeachTextField");
+            GUIStyle style = new GUIStyle();
             if (before == "Search...")
             {
                 style.normal.textColor = Color.gray;
@@ -150,7 +152,8 @@ namespace FKLib
             string after = EditorGUI.TextField(rect, "", before, style);
             EditorGUI.FocusTextInControl("SearchTextFieldFocus");
 
-            GUI.Button(buttonRect, GUIContent.none, (after != "" && after != "Search...") ? "ToolbarSeachCancelButton" : "ToolbarSeachCancelButtonEmpty");
+            //GUI.Button(buttonRect, GUIContent.none, (after != "" && after != "Search...") ? "ToolbarSeachCancelButton" : "ToolbarSeachCancelButtonEmpty");
+            GUI.Button(buttonRect, GUIContent.none, (after != "" && after != "Search...") ? GUI.skin.button : GUI.skin.button);
             EditorGUILayout.EndHorizontal();
             return after;
         }

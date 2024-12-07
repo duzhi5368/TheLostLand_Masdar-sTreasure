@@ -16,19 +16,19 @@ namespace FKLib
 
     public static class Utility
     {
-        private static Assembly[] m_AssembliesLookup;
-        private static Dictionary<string, Type> m_TypeLookup;
-        private static Dictionary<Type, FieldInfo[]> m_SerializedFieldInfoLookup;
-        private static readonly Dictionary<Type, MethodInfo[]> m_MethodInfoLookup;
-        private readonly static Dictionary<MemberInfo, object[]> m_MemberAttributeLookup;
+        private static Assembly[]                                   _sAssembliesLookup;
+        private static Dictionary<string, Type>                     _sTypeLookup;
+        private static Dictionary<Type, FieldInfo[]>                _sSerializedFieldInfoLookup;
+        private readonly static Dictionary<Type, MethodInfo[]>      _sMethodInfoLookup;
+        private readonly static Dictionary<MemberInfo, object[]>    _sMemberAttributeLookup;
 
         static Utility()
         {
-            Utility.m_AssembliesLookup = GetLoadedAssemblies();
-            Utility.m_TypeLookup = new Dictionary<string, Type>();
-            Utility.m_SerializedFieldInfoLookup = new Dictionary<Type, FieldInfo[]>();
-            Utility.m_MethodInfoLookup = new Dictionary<Type, MethodInfo[]>();
-            Utility.m_MemberAttributeLookup = new Dictionary<MemberInfo, object[]>();
+            _sAssembliesLookup = GetLoadedAssemblies();
+            _sTypeLookup = new Dictionary<string, Type>();
+            _sSerializedFieldInfoLookup = new Dictionary<Type, FieldInfo[]>();
+            _sMethodInfoLookup = new Dictionary<Type, MethodInfo[]>();
+            _sMemberAttributeLookup = new Dictionary<MemberInfo, object[]>();
         }
 
         // 获取指定名称的Type，如无，则返回null
@@ -40,7 +40,7 @@ namespace FKLib
                 return null;
             }
             Type type;
-            if (m_TypeLookup.TryGetValue(typeName, out type))
+            if (_sTypeLookup.TryGetValue(typeName, out type))
             {
                 return type;
             }
@@ -48,9 +48,9 @@ namespace FKLib
             if (type == null)
             {
                 int num = 0;
-                while (num < m_AssembliesLookup.Length)
+                while (num < _sAssembliesLookup.Length)
                 {
-                    type = Type.GetType(string.Concat(typeName, ",", m_AssembliesLookup[num].FullName));
+                    type = Type.GetType(string.Concat(typeName, ",", _sAssembliesLookup[num].FullName));
                     if (type == null)
                     {
                         num++;
@@ -64,7 +64,7 @@ namespace FKLib
 
             if (type == null)
             {
-                foreach (Assembly a in m_AssembliesLookup)
+                foreach (Assembly a in _sAssembliesLookup)
                 {
                     Type[] assemblyTypes = a.GetTypes();
                     for (int j = 0; j < assemblyTypes.Length; j++)
@@ -80,7 +80,7 @@ namespace FKLib
 
             if (type != null)
             {
-                m_TypeLookup.Add(typeName, type);
+                _sTypeLookup.Add(typeName, type);
             }
             return type;
         }
@@ -96,10 +96,10 @@ namespace FKLib
         public static MethodInfo[] GetAllMethods(this Type type)
         {
             MethodInfo[] methods = new MethodInfo[0];
-            if (type != null && !Utility.m_MethodInfoLookup.TryGetValue(type, out methods))
+            if (type != null && !Utility._sMethodInfoLookup.TryGetValue(type, out methods))
             {
                 methods = type.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).Concat(GetAllMethods(type.GetBaseType())).ToArray();
-                Utility.m_MethodInfoLookup.Add(type, methods);
+                Utility._sMethodInfoLookup.Add(type, methods);
             }
             return methods;
         }
@@ -115,6 +115,7 @@ namespace FKLib
             {
                 return new FieldInfo[0];
             }
+            Debug.Log(type.FullName);
             FieldInfo[] fields = GetSerializedFields(type).Concat(GetAllSerializedFields(type.BaseType)).ToArray();
             fields = fields.OrderBy(x => x.DeclaringType.BaseTypesAndSelf().Count()).ToArray();
             return fields;
@@ -123,11 +124,11 @@ namespace FKLib
         public static FieldInfo[] GetSerializedFields(this Type type)
         {
             FieldInfo[] fields;
-            if (!Utility.m_SerializedFieldInfoLookup.TryGetValue(type, out fields))
+            if (!Utility._sSerializedFieldInfoLookup.TryGetValue(type, out fields))
             {
                 fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).Where(x => x.IsPublic && !x.HasAttribute(typeof(NonSerializedAttribute)) || x.HasAttribute(typeof(SerializeField)) || x.HasAttribute(typeof(SerializeReference))).ToArray();
                 fields = fields.OrderBy(x => x.DeclaringType.BaseTypesAndSelf().Count()).ToArray();
-                Utility.m_SerializedFieldInfoLookup.Add(type, fields);
+                Utility._sSerializedFieldInfoLookup.Add(type, fields);
             }
             return fields;
         }
@@ -153,10 +154,10 @@ namespace FKLib
         public static object[] GetCustomAttributes(MemberInfo memberInfo, bool inherit)
         {
             object[] customAttributes;
-            if (!Utility.m_MemberAttributeLookup.TryGetValue(memberInfo, out customAttributes))
+            if (!Utility._sMemberAttributeLookup.TryGetValue(memberInfo, out customAttributes))
             {
                 customAttributes = memberInfo.GetCustomAttributes(inherit);
-                Utility.m_MemberAttributeLookup.Add(memberInfo, customAttributes);
+                Utility._sMemberAttributeLookup.Add(memberInfo, customAttributes);
             }
             return customAttributes;
         }

@@ -8,6 +8,7 @@ namespace FKLib
 {
     public class StatsManager : MonoBehaviour
     {
+        // 自身单例对象
         private static StatsManager sStatsManagerInstance;
         public static StatsManager Instance
         {
@@ -21,6 +22,8 @@ namespace FKLib
         public bool IsDontDestoryOnLoad = true;
         private List<StatsHandler> _statsHandlers;
 
+
+        // 状态数据库对象
         [SerializeField]
         private StatDatabase _statDatabase = null;
         public static StatDatabase StatDatabase
@@ -35,6 +38,8 @@ namespace FKLib
             }
         }
 
+
+        // 编辑器中 -> Setting -> Default设定区
         private static DefaultSettings _defaultSettings;
         public static DefaultSettings DefaultSettings 
         {
@@ -45,7 +50,7 @@ namespace FKLib
                 return _defaultSettings;
             }
         }
-
+        // 编辑器中 -> Setting -> UI设定区
         private static UISettings _uiSettings;
         public static UISettings UISettings
         {
@@ -56,7 +61,7 @@ namespace FKLib
                 return _uiSettings;
             }
         }
-
+        // 编辑器中 -> Setting -> Notification设定区
         private static NotificationSettings _notificationSettings;
         public static NotificationSettings NotificationSettings
         {
@@ -67,7 +72,7 @@ namespace FKLib
                 return _notificationSettings;
             }
         }
-
+        // 编辑器中 -> Setting -> Saving&Loading设定区
         private static SavingLoadingSettings _savingLoadingSettings;
         public static SavingLoadingSettings SavingLoadingSettings
         {

@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 //============================================================
@@ -36,11 +37,21 @@ namespace FKLib
 
         static CollectionEditorStyles()
         {
-            _skin = Resources.Load<GUISkin>("EditorSkin");
+            //_skin = Resources.Load<GUISkin>("EditorSkin");
+            _skin = AssetDatabase.LoadAssetAtPath<GUISkin>(Path.EDITOR_GUI_SKIN_FILE);
+            if (_skin == null)
+            {
+                Debug.LogError("Can't load EditorSkin GUISkin...");
+            }
+            else
+            {
+                Debug.Log("EditorSkin GUISkin has custom styles number: " +_skin.customStyles.Length);
+            }
             _leftPaneLight = _skin.GetStyle("Left Pane");
             _centerPaneLight = _skin.GetStyle("Center Pane");
             _leftPaneDark = _skin.GetStyle("Left Pane Dark");
             _centerPaneDark = _skin.GetStyle("Center Pane Dark");
+            
 
             NormalColor = EditorGUIUtility.isProSkin ? new Color(0.219f, 0.219f, 0.219f, 1f) : new Color(0.796f, 0.796f, 0.796f, 1f);
             HoverColor = EditorGUIUtility.isProSkin ? new Color(0.266f, 0.266f, 0.266f, 1f) : new Color(0.69f, 0.69f, 0.69f, 1f);

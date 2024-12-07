@@ -86,12 +86,18 @@ namespace FKLib
 
         protected override void CreateItem(Type type)
         {
+            // 实例化
             IStat item = (IStat)ScriptableObject.CreateInstance(type);
             item.hideFlags = HideFlags.HideInHierarchy;
             StatDatabase database = _target as StatDatabase;
+            if (database == null)
+                return;
+            // 添加这个对象到数据库中
             AssetDatabase.AddObjectToAsset(item, _target);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+
+            // 添加到UI上
             Items.Add(item);
             Select(item);
 

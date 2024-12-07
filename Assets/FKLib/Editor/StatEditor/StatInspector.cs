@@ -113,8 +113,11 @@ namespace FKLib
             if(_database != null)
             {
                 _childEditors = new List<ICollectionEditor>();
-                _childEditors.Add(new StatCollectionEditor(_database, _database.Items, new List<string>()));
-                _childEditors.Add(new ScriptableObjectCollectionEditor<StatEffect>("Effects", _database, _database.Effects, false));
+                // 添加 Stats 标签页
+                _childEditors.Add(new StatCollectionEditor(_database, _database.Stats, new List<string>()));
+                // 添加 Effects 标签页
+                _childEditors.Add(new EffectCollectionEditor(_database, _database.Effects, new List<string>()));
+                // 添加的 Settings 标签页
                 _childEditors.Add(new StatSettingsEditor(_database, _database.Settings));
 
                 for (int i = 0; i < _childEditors.Count; i++)

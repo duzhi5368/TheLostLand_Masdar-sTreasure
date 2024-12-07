@@ -1,4 +1,3 @@
-using System.IO;
 using UnityEditor;
 using UnityEngine;
 //============================================================
@@ -6,34 +5,33 @@ namespace FKLib
 {
     public static class CollectionEditorStyles
     {
-        public static GUIStyle MinusButton;
-        public static GUIStyle SelectButton;
-        public static GUIStyle Background;
-        public static GUIStyle SelectButtonText;
-        public static Color NormalColor;
-        public static Color HoverColor;
-        public static Color ActiveColor;
-        public static Color WarningColor;
-        public static GUIStyle DragInsertion;
-        public static Texture2D ErrorIcon;
-        public static GUIStyle indicatorColor;
+        public static GUIStyle      MinusButton;
+        public static GUIStyle      SelectButton;
+        public static GUIStyle      Background;
+        public static GUIStyle      SelectButtonText;
+        public static Color         NormalColor;
+        public static Color         HoverColor;
+        public static Color         ActiveColor;
+        public static Color         WarningColor;
+        public static GUIStyle      DragInsertion;
+        public static Texture2D     ErrorIcon;
+        public static GUIStyle      indicatorColor;
 
-        private static GUIStyle _leftPaneDark;
-        private static GUIStyle _leftPaneLight;
-        public static GUIStyle LeftPane
+        private static GUIStyle     _leftPaneDark;
+        private static GUIStyle     _leftPaneLight;
+        private static GUIStyle     _centerPaneDark;
+        private static GUIStyle     _centerPaneLight;
+        private static GUISkin      _skin;
+
+        public static GUIStyle  LeftPane
         {
             get { return EditorGUIUtility.isProSkin ? _leftPaneDark : _leftPaneLight; }
         }
 
-        private static GUIStyle _centerPaneDark;
-        private static GUIStyle _centerPaneLight;
         public static GUIStyle CenterPane
         {
             get { return EditorGUIUtility.isProSkin ? _centerPaneDark : _centerPaneLight; }
         }
-
-        private static GUISkin _skin;
-
 
         static CollectionEditorStyles()
         {
@@ -57,7 +55,7 @@ namespace FKLib
             HoverColor = EditorGUIUtility.isProSkin ? new Color(0.266f, 0.266f, 0.266f, 1f) : new Color(0.69f, 0.69f, 0.69f, 1f);
             ActiveColor = EditorGUIUtility.isProSkin ? new Color(0.172f, 0.364f, 0.529f, 1f) : new Color(0.243f, 0.459f, 0.761f, 1f);
             WarningColor = new Color(0.9f, 0.37f, 0.32f, 1f);
-            ErrorIcon = EditorGUIUtility.LoadRequired("console.erroricon") as Texture2D;
+            ErrorIcon = EditorGUIUtility.LoadRequired("console.erroricon") as Texture2D;    // º”‘ÿƒ⁄÷√ICON
 
             MinusButton = new GUIStyle("OL Minus")
             {

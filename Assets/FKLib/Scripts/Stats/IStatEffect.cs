@@ -5,15 +5,18 @@ using UnityEngine;
 namespace FKLib
 {
     [Serializable]
-    public class StatEffect : ScriptableObject, INameable
+    public class IStatEffect : ScriptableObject, INameable
     {
+        #region 编辑器中的数据
         [InspectorLabel("名称")]
         [SerializeField]
-        protected string _statEffectName = "New Effect";
+        protected string _statEffectName = "新效果";
+        [InspectorLabel("重复次数")]
         [SerializeField]
-        protected int _repeat = -1;
+        protected int _repeatTimes = -1;
         [SerializeReference]
         protected List<Action> _actions = new List<Action>();
+        #endregion
 
         protected ActionSequence _actionSequence;
 
@@ -45,7 +48,7 @@ namespace FKLib
                 _currentRepeat += 1;
             }
             _actionSequence.Update();
-            if (_repeat > 0 && _currentRepeat >= _repeat)
+            if (_repeatTimes > 0 && _currentRepeat >= _repeatTimes)
             {
                 _statsHandler.RemoveEffect(this);
             }

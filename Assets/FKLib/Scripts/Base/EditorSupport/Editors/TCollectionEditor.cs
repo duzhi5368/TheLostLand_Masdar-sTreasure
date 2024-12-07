@@ -1,26 +1,25 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEditor;
-using UnityEditor.EditorTools;
 using UnityEngine;
 //============================================================
 namespace FKLib
 {
+    // 编辑器主面板
     [Serializable]
     public abstract class TCollectionEditor<T> : ICollectionEditor
     {
-        private const float _list_min_width = 200f;
-        private const float _list_max_width = 400f;
-        private const float _list_resize_width = 10f;
-        private bool _startDrag;
-        private bool _drag;
-        private Rect _dragRect = Rect.zero;
+        private const float     _list_min_width = 200f;
+        private const float     _list_max_width = 400f;
+        private const float     _list_resize_width = 10f;
+        private bool            _startDrag;
+        private bool            _drag;
+        private Rect            _dragRect = Rect.zero;
 
-        protected Rect _sidebarRect = new Rect(0, 30, 200, 1000);
-        protected Vector2 _scrollPosition;
-        protected Vector2 _sidebarScrollPosition;
-        protected string _searchString = string.Empty;
+        protected Rect          _sidebarRect = new Rect(0, 30, 200, 1000);
+        protected Vector2       _scrollPosition;
+        protected Vector2       _sidebarScrollPosition;
+        protected string        _searchString = string.Empty;
 
         protected abstract List<T> Items { get; }
         protected virtual bool CanAdd => true;
@@ -28,7 +27,7 @@ namespace FKLib
         protected virtual bool CanDuplicate => true;
         protected virtual bool IsUseInspectorDefaultMargins => true;
 
-        protected int _selectedItemIndex;
+        protected int _selectedItemIndex;   // 当前所选择的Item
         protected T SelectedItem
         {
             get
@@ -41,13 +40,15 @@ namespace FKLib
             }
         }
 
-        private string _toolbarName;
+        private string _toolbarName;        // 本面板的名称
         public virtual string ToolbarName => !string.IsNullOrEmpty(_toolbarName) ? _toolbarName : (GetType().IsGenericType ?
             ObjectNames.NicifyVariableName(GetType().GetGenericArguments()[0].Name) :
             ObjectNames.NicifyVariableName(GetType().Name.Replace("Editor", "")));
 
         public TCollectionEditor() { }
-        public TCollectionEditor(string toolbarName) { _toolbarName = toolbarName; }
+        public TCollectionEditor(string toolbarName) { 
+            _toolbarName = toolbarName; 
+        }
 
         public virtual void OnEnable()
         {

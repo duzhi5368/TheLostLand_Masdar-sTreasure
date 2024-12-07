@@ -11,6 +11,7 @@ namespace FKLib
 
         private System.Action _onValueChangeInternal;
 
+        #region 编辑器中的数据
         [InspectorLabel("名称")]
         [SerializeField]
         protected string _statName = "新属性";
@@ -26,6 +27,7 @@ namespace FKLib
 
         [SerializeReference]
         protected List<StatCallback> _callbacks = new List<StatCallback>();
+        #endregion
 
         [NonSerialized]
         protected float _value;

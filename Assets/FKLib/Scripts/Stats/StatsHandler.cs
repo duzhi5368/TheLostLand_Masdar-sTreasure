@@ -24,7 +24,7 @@ namespace FKLib
         private List<StatOverride> _statOverrides = new List<StatOverride>();
 
         [SerializeField]
-        protected List<StatEffect> _effects = new List<StatEffect>();
+        protected List<IStatEffect> _effects = new List<IStatEffect>();
 
         public bool IsSaveable = false;
         public System.Action OnUpdate;
@@ -242,16 +242,16 @@ namespace FKLib
             return false;
         }
 
-        public void AddEffect(StatEffect effect) 
+        public void AddEffect(IStatEffect effect) 
         {
             effect = Instantiate(effect);
             _effects.Add(effect);
             effect.Initialize(this);
         }
 
-        public void RemoveEffect(StatEffect effect)
+        public void RemoveEffect(IStatEffect effect)
         {
-            StatEffect instance = _effects.Find(x => x.Name == effect.Name);
+            IStatEffect instance = _effects.Find(x => x.Name == effect.Name);
             _effects.Remove(instance);
         }
 

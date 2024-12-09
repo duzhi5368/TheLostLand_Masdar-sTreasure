@@ -8,10 +8,11 @@ namespace FKLib
     {
         public override string Name
         {
-            get { return "Default"; }
+            get { return "默认设置"; }
         }
 
-        [Header("Debug")]
+        [Header("【Debug设置】")]
+        [InspectorLabel("是否显示Debug信息")]
         public bool IsShowDebugMessages = true;
     }
 }

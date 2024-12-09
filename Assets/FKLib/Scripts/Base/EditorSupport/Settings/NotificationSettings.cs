@@ -7,7 +7,7 @@ namespace FKLib
     {
         public override string Name
         {
-            get { return "Notification"; }
+            get { return "Í¨ÖªÉèÖÃ"; }
         }
     }
 }

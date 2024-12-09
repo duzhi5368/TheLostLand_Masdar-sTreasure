@@ -6,6 +6,6 @@ namespace FKLib
     [Serializable]
     public abstract class ISettings : ScriptableObject, INameable
     {
-        public virtual string Name { get { return "Settings"; } set { } }
+        public virtual string Name { get { return "±à¼­Æ÷ÉèÖÃ"; } set { } }
     }
 }

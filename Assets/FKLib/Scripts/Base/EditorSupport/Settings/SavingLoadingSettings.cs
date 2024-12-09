@@ -1,23 +1,22 @@
 using System;
+using UnityEngine;
 //============================================================
 namespace FKLib
 {
-    public enum ENUM_SavingProvider
-    {
-        eSP_PlayerPrefs,
-    }
-
     [Serializable]
     public class SavingLoadingSettings : ISettings
     {
         public override string Name
         {
-            get { return "Saving & Loading"; }
+            get { return "保存和加载设置"; }
         }
 
+        [Header("【自动保存设置】")]
+        [InspectorLabel("是否自动保存")]
         public bool IsAutoSave = true;
-        public string SavingKey = "Player";
+        [InspectorLabel("自动保存间隔时间: 秒")]
         public float SavingRate = 60f;
-        public ENUM_SavingProvider Provider;
+        [InspectorLabel("保存Key")]
+        public string SavingKey = "Player";
     }
 }

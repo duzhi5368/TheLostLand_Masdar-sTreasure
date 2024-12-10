@@ -14,7 +14,7 @@ namespace FKLib
         {
             get
             {
-                Assert.IsNotNull(sStatsManagerInstance, "Create one from Windows > FK状态管理器 > Create Stats Manager!\"");
+                Assert.IsNotNull(sStatsManagerInstance, "Create one from Windows > 创建FK状态管理器\"");
                 return sStatsManagerInstance;
             }
         }
@@ -30,7 +30,7 @@ namespace FKLib
         {
             get
             {
-                if(sStatsManagerInstance == null)
+                if(StatsManager.Instance == null)
                     return null;
 
                 Assert.IsNotNull(sStatsManagerInstance._statDatabase, "Please assign StatDatabase to the Stats Manager!");
@@ -100,6 +100,7 @@ namespace FKLib
             }
             else
             {
+                Debug.Log("Create stats manager instance successful!");
                 sStatsManagerInstance = this;
                 if (IsDontDestoryOnLoad)
                 {
@@ -115,6 +116,7 @@ namespace FKLib
                 _statsHandlers = new List<StatsHandler>();
                 if (SavingLoadingSettings.IsAutoSave)
                 {
+                    // 定时保存玩家状态
                     StartCoroutine(RepeatSaving(SavingLoadingSettings.SavingRate));
                 }
                 if(DefaultSettings.IsShowDebugMessages)
@@ -134,6 +136,7 @@ namespace FKLib
             Save(key);
         }
 
+        // 将玩家状态保存到stat文件中
         public static void Save(string key)
         {
             StatsHandler[] results = Object.FindObjectsByType<StatsHandler>(FindObjectsSortMode.None).Where(x => x.IsSaveable).ToArray();

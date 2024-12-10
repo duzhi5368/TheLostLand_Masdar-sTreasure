@@ -19,5 +19,22 @@ namespace FKLib
                 StatsManager.UISettings.Notification.AddItem(options, replacements);
             }
         }
+
+        public static void SimpleDialogBoxNotice(string title, string text)
+        {
+            if (StatsManager.UISettings.DialogBox != null)
+            {
+                string[] buttons = { "OK" };
+                StatsManager.UISettings.DialogBox.Show(title, text, buttons);
+            }
+        }
+
+        public static void SimpleNotification(string text)
+        {
+            if (StatsManager.UISettings.Notification != null)
+            {
+                StatsManager.UISettings.Notification.AddItem(text);
+            }
+        }
     }
 }

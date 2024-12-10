@@ -39,11 +39,12 @@ namespace FKLib
             _skin = AssetDatabase.LoadAssetAtPath<GUISkin>(Path.EDITOR_GUI_SKIN_FILE);
             if (_skin == null)
             {
-                Debug.LogError("Can't load EditorSkin GUISkin...");
+                Debug.LogError("Can't load EditorSkin GUISkin....");
             }
             else
             {
                 Debug.Log("EditorSkin GUISkin has custom styles number: " +_skin.customStyles.Length);
+                // NotificationExtension.SimpleDialogBoxNotice("Notice", "EditorSkin GUISkin has custom styles number: " + _skin.customStyles.Length);
             }
             _leftPaneLight = _skin.GetStyle("Left Pane");
             _centerPaneLight = _skin.GetStyle("Center Pane");

@@ -12,7 +12,7 @@ namespace FKLib
         }
 
         [Header("【自动保存设置】")]
-        [InspectorLabel("是否自动保存")]
+        [InspectorLabel("是否自动保存玩家状态")]
         public bool IsAutoSave = true;
         [InspectorLabel("自动保存间隔时间: 秒")]
         public float SavingRate = 60f;

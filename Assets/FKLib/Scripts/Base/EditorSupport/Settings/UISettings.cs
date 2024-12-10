@@ -12,9 +12,9 @@ namespace FKLib
             get { return "UI设置"; }
         }
 
-        [InspectorLabel("Notification", "Name of Notification widget.")]
+        [InspectorLabel("日志框名称", "Name of Notification widget.")]
         public string NotificationName = "Notification";
-        [InspectorLabel("Dialog Box", "Name of the dialog box widget.")]
+        [InspectorLabel("提示框名称", "Name of the dialog box widget.")]
         public string DialogBoxName = "Dialog Box";
 
         private Notification _notifocation;

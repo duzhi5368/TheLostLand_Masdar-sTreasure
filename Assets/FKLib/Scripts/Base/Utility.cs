@@ -115,7 +115,6 @@ namespace FKLib
             {
                 return new FieldInfo[0];
             }
-            Debug.Log(type.FullName);
             FieldInfo[] fields = GetSerializedFields(type).Concat(GetAllSerializedFields(type.BaseType)).ToArray();
             fields = fields.OrderBy(x => x.DeclaringType.BaseTypesAndSelf().Count()).ToArray();
             return fields;

@@ -70,9 +70,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAutoSave: 1
+  SavingRate: 10
   SavingKey: Player
-  SavingRate: 60
-  Provider: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,8 +90,8 @@ MonoBehaviour:
   - {fileID: -3598978987531732931}
   Settings:
   - {fileID: -5209170515531916383}
-  - {fileID: -5446935719300960358}
   - {fileID: -1445238076992999737}
+  - {fileID: -5446935719300960358}
   - {fileID: -6656277875818078633}
 --- !u!114 &2155295827339663658
 MonoBehaviour:
@@ -109,7 +108,10 @@ MonoBehaviour:
   _statName: "\u65B0\u5C5E\u6027"
   _baseValue: 0
   _maxValue: -1
-  _callbacks: []
+  _callbacks:
+  - rid: -2
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
